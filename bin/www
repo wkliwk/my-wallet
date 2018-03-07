@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../lib/app');
 var debug = require('debug')('my-wallet:server');
 var http = require('http');
 const displayRoutes = require('express-routemap');
@@ -27,6 +27,7 @@ var server = http.createServer(app);
  */
 
 server.listen(port, () => {
+  displayRoutes(app);
   displayRoutes(app, 'route-table.log');
 });
 server.on('error', onError);
