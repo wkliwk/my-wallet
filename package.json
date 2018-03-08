@@ -1,12 +1,12 @@
 {
   "name": "my-wallet",
-  "version": "0.0.0",
+  "version": "1.5.0",
   "private": true,
   "scripts": {
     "start": "nodemon --exec yarn buildAndRun",
     "cleanBuild": "rm -rf lib/ && mkdir -p lib/views && cp src/views/** lib/views && flow-remove-types src/ -d lib/",
-    "buildAndRun": "cp -R src/views lib/ && flow-remove-types src/ -d lib/ && node ./bin/www",
-    "build": "flow-remove-types src/ -d lib/",
+    "buildAndRun": "flow-remove-types src/ -D lib/ && node ./bin/www",
+    "build": "flow-remove-types src/ -D lib/",
     "prepublish": "yarn run build"
   },
   "dependencies": {
