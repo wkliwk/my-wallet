@@ -1,8 +1,7 @@
-'use strict';
+const uuid = require('uuid');
 
-const uuid = require('uuid')
 // @flow
- class User {
+class User {
   id: string;
   name: string;
   email: string;
@@ -12,11 +11,18 @@ const uuid = require('uuid')
   expireTime: number;
   createdAt: number;
   updatedAt: number;
-  
-  constructor(name: string, email: string, firstName: string, accessToken: string, expireTime: number) {
+
+  constructor(
+    name: string,
+    email: string,
+    firstName: string,
+    lastName: string,
+    accessToken: string,
+    expireTime: number,
+  ) {
     const now = new Date();
     const currentTimestamp = now.getTime();
-    
+
     this.id = uuid();
     this.name = name;
     this.email = email;
@@ -29,7 +35,7 @@ const uuid = require('uuid')
   }
 }
 
-module.exports = 'user';
+module.exports = User;
 
 // class User {
 //     constructor(email, firstName, lastName, accessToken, expireTime, createdAt, updateAt) {
@@ -71,7 +77,7 @@ module.exports = 'user';
 //     }
 // }
 
-  
+
 // // Example 1: Creating a new class (declaration-form)
 // // ===============================================================
 

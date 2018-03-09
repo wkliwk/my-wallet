@@ -1,16 +1,26 @@
-var express = require('express');
-var router = express.Router();
+// @flow
+const express = require('express');
+
+const router = express.Router();
+const User = require('../models/User');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  const user = new User();
-  res.json(user);
+router.get('/', (req, res, _next) => {
+  const user = new User(
+    'name',
+    'email@email.com',
+    'firstName',
+    'lastName',
+    'accessToken',
+    new Date().getTime(),
+  );
+  res.send(user);
 });
 
 module.exports = router;
 
 
-/**  * 
+/**  *
  *  < Expense >
  *  id
  *  createdAt
@@ -24,8 +34,8 @@ module.exports = router;
  *  remark
  *  metaData { repeate }
  *  images { url, createdAt }
- *  
+ *
  *  < Config >
- * 
+ *
  */
 
